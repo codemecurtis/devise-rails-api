@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :clients, only: []
+  namespace :api do
+    namespace :v1 do
+      # resources :client
+      resources :client
+      resource :login, only: [:create], controller: :sessions
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
