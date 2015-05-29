@@ -26,8 +26,8 @@ class ApplicationController < ActionController::API
       return
     end
 
-    p client_id = auth_token.split(':').first
-    p client = Client.where(id: client_id).first
+    client_id = auth_token.split(':').first
+    client = Client.where(id: client_id).first
 
     if client && Devise.secure_compare(client.access_token, auth_token)
       # User can access
